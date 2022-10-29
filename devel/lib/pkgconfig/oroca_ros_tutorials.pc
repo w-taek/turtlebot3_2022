@@ -1,0 +1,8 @@
+prefix=/home/w_taek/catkin_ws/devel
+
+Name: oroca_ros_tutorials
+Description: Description of oroca_ros_tutorials
+Version: 0.1.0
+Cflags: -I/home/w_taek/catkin_ws/devel/include
+Libs: -L${prefix}/lib -loroca_ros_tutorials
+Requires: roscpp std_msgs

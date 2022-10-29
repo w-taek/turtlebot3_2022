@@ -1,0 +1,8 @@
+prefix=/home/w_taek/catkin_ws/devel
+
+Name: gogo_test
+Description: Description of gogo_test
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package>
+  <name>test_wiringpi_ros</name>
+  <version>0.1.0</version>
+  <description>test wiringpi ros</description>
+
+  <maintainer email="kwtaek97@naver.com"></maintainer>
+
+  <license>MIT</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>roscpp</build_depend>
+  <build_depend>std_msgs</build_depend>
+
+  <run_depend>roscpp</run_depend>
+  <run_depend>std_msgs</run_depend>
+
+  <export>
+  </export>
+</package>

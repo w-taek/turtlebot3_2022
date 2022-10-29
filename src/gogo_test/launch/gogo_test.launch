@@ -1,0 +1,5 @@
+<launch>
+    <node pkg="gogo_test" type="gogo_test" name="driving">
+      <param name="g_state" type="int" value="0" />
+    </node>
+</launch>

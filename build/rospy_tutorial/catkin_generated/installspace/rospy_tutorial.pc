@@ -1,0 +1,8 @@
+prefix=/home/w_taek/catkin_ws/install
+
+Name: rospy_tutorial
+Description: Description of rospy_tutorial
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

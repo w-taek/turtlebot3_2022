@@ -1,0 +1,8 @@
+prefix=/home/w_taek/catkin_ws/devel
+
+Name: my_first_ros_pkg
+Description: Description of my_first_ros_pkg
+Version: 0.0.1
+Cflags: -I/home/w_taek/catkin_ws/src/my_first_ros_pkd/include
+Libs: -L${prefix}/lib 
+Requires: roscpp std_msgs

@@ -1,0 +1,8 @@
+prefix=/home/w_taek/catkin_ws/devel
+
+Name: super_turtle
+Description: Description of super_turtle
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
