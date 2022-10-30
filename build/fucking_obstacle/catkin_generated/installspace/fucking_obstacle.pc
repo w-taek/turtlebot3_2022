@@ -1,0 +1,8 @@
+prefix=/home/w_taek/catkin_ws/install
+
+Name: fucking_obstacle
+Description: Description of fucking_obstacle
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

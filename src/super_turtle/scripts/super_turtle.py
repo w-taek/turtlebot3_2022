@@ -246,7 +246,7 @@ def callback(data_laser):
         turtlestop()
 
 
-    motor_pub.publish(move)
+    #motor_pub.publish(move)
 
 
 if __name__ == '__main__':

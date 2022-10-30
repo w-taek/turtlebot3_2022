@@ -1,2 +1,2 @@
-gogo_test:my_first_ros_pkd:oroca_ros_tutorials:rospy_tutorial:super_test:super_turtle:test_wiringpi_ros
+fucking_obstacle:gogo_test:my_first_ros_pkd:oroca_ros_tutorials:rospy_tutorial:super_test:super_turtle:test_wiringpi_ros
 -DCATKIN_DEVEL_PREFIX=/home/w_taek/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/w_taek/catkin_ws/install -G Unix Makefiles

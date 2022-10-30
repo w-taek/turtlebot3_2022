@@ -19,7 +19,7 @@ DEBUG = False
 TEST = False
 LOG = False
 LOG_7 = True
-LOG_VER = 1
+LOG_VER = 2
 
 
 def sub_odom():
@@ -149,6 +149,10 @@ def callback(data_laser):
         f.write("---------------------------------------\n")
         f.write("abs(b_l - b_r) :%f\n" % abs(b_l - b_r))
         f.write("abs(fR - fL)   :%f\n" % abs(fR - fL))
+        f.write("---------------------------------------\n")
+        f.write("data_laser.ranges\n")
+        f.write("                ")
+        f.write(data_laser.ranges)
         f.write("=======================================\n")
 
     if (TEST):
