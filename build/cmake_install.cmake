@@ -136,6 +136,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/w_taek/catkin_ws/build/test_wiringpi_ros/cmake_install.cmake")
   include("/home/w_taek/catkin_ws/build/gogo_test/cmake_install.cmake")
   include("/home/w_taek/catkin_ws/build/rospy_tutorial/cmake_install.cmake")
+  include("/home/w_taek/catkin_ws/build/super_test/cmake_install.cmake")
   include("/home/w_taek/catkin_ws/build/super_turtle/cmake_install.cmake")
 
 endif()
