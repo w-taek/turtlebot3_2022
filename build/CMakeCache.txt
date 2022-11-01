@@ -300,6 +300,12 @@ catkin_DIR:PATH=/opt/ros/melodic/share/catkin/cmake
 cpp_common_DIR:PATH=/opt/ros/melodic/share/cpp_common/cmake
 
 //Value Computed by CMake
+cuty_sexy_dachshund_BINARY_DIR:STATIC=/home/w_taek/catkin_ws/build/cuty_sexy_dachshund
+
+//Value Computed by CMake
+cuty_sexy_dachshund_SOURCE_DIR:STATIC=/home/w_taek/catkin_ws/src/cuty_sexy_dachshund
+
+//Value Computed by CMake
 fucking_obstacle_BINARY_DIR:STATIC=/home/w_taek/catkin_ws/build/fucking_obstacle
 
 //Value Computed by CMake
@@ -413,6 +419,12 @@ project_BINARY_DIR:STATIC=/home/w_taek/catkin_ws/build
 
 //Value Computed by CMake
 project_SOURCE_DIR:STATIC=/home/w_taek/catkin_ws/src
+
+//Value Computed by CMake
+publish_led_test_BINARY_DIR:STATIC=/home/w_taek/catkin_ws/build/publish_led_test
+
+//Value Computed by CMake
+publish_led_test_SOURCE_DIR:STATIC=/home/w_taek/catkin_ws/src/publish_led_test
 
 //The directory containing a CMake configuration file for rosconsole.
 rosconsole_DIR:PATH=/opt/ros/melodic/share/rosconsole/cmake
@@ -596,7 +608,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=12
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=14
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

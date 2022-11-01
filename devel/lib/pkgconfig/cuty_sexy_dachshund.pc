@@ -1,0 +1,8 @@
+prefix=/home/w_taek/catkin_ws/devel
+
+Name: cuty_sexy_dachshund
+Description: Description of cuty_sexy_dachshund
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
