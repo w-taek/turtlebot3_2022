@@ -3,10 +3,9 @@
 import sys
 import rospy
 import math as m
-from std_msgs.msg import Float32MultiArray
+from std_msgs.msg import Int32
 from geometry_msgs.msg import Twist
 from sensor_msgs.msg import LaserScan
-from laser_geometry import LaserProjection
 from nav_msgs.msg import Odometry
 import numpy as np
 
@@ -15,10 +14,10 @@ import pdb
 ############# CONST VAR #############
 # TO DEBUG
 DEBUG = False
-TEST = False
+TEST = True
 LOG = True
-LOG_VER = 20
-LOG_PATH = '/home/w_taek/log/log_dachshund_2/log_1_0%d.txt' % LOG_VER
+LOG_VER = 1
+LOG_PATH = '/home/w_taek/log/log_final/log_1_0%d.txt' % LOG_VER
 # DISTANCE VAR TO RACE
 SAFE_DIST_FRONT = 0.05
 SAFE_DIST_FOR_ORIENT = 0.1
@@ -51,6 +50,7 @@ OBS_POINTS_RANGE_CENTER = 20
 OBS_DETECT_DIST = 0.23
 OBS_DEFFERENT_COUNT = 6
 STATES_DETEC_OBS = np.array([0, 2, 4, 6])
+STATES_DETEC_TREE = np.array([0, 4])
 STATE_AVOID_READY = 9
 STATE_AVOID_TO_R1 = 11
 STATE_AVOID_TO_R2 = 12
@@ -76,6 +76,9 @@ PRE_NONE = 0
 PRE_EXIST_LEFT = 1
 PRE_EXIST_RIGHT = 2
 
+# VAR TO DETECT TREE
+TREE_DIST = 0.6
+
 ############# GLOBAL VAR #############
 # race
 g_state = 0
@@ -88,6 +91,7 @@ g_pre_orient = 0
 g_pre_state = 0
 g_avoid_state = 0
 g_pre_obs_R_or_L = PRE_NONE
+g_is_tree = 0
 
 def sub_odom():
     odom_sub = rospy.Subscriber('/odom', Odometry, callback_odom)
@@ -379,6 +383,22 @@ def callback(data_laser):
     ### MOTOR PUBLISH ######################
     motor_pub.publish(move)
 
+    ### TREE PUBLISH ######################
+    global g_is_tree
+    if (l + b > 0.6):
+        g_is_tree = 1
+    else :
+        g_is_tree = 0
+
+    if (g_state in STATES_DETEC_TREE):
+        is_tree_topic.data = g_is_tree
+    else :
+        g_is_tree = 0
+        is_tree_topic.data = g_is_tree
+    
+    tree_pub.publish(is_tree_topic)
+
+
     if (LOG):
         f = open(LOG_PATH, 'a')
         f.write("================================================================\n")
@@ -421,6 +441,7 @@ def callback(data_laser):
         print("ff       :%f" % ff)
         print("b       :%f" % b)
         print("l       :%f" % l)
+        print("r       :%f" % r)
         print("---------------------------------------")
         print("yaw      :%f" % yaw)
         print("yaw_diff  :%r" % abs(abs(yaw) - abs(g_pre_orient)))
@@ -431,16 +452,13 @@ def callback(data_laser):
         print("g_obs_exist_r        :%r" % g_obs_exist_r)
         print("obs_point_count_R    :%d" % obs_point_count_R)
         print("---------------------------------------")
-        print("L - R    :%d" % (obs_point_count_L - obs_point_count_R))
-        print("R - L    :%d" % (obs_point_count_R - obs_point_count_L))
+        print("L - R    :%f" % (obs_point_count_L - obs_point_count_R))
+        print("R - L    :%f" % (obs_point_count_R - obs_point_count_L))
         print("---------------------------------------")
         print("fL")
         print(refined_laser[:OBS_POINTS_RANGE])
         print("fR")
         print(refined_laser[-OBS_POINTS_RANGE:])
-        # print("g_pre_orient   :%r\n" % g_pre_orient)
-        # print("g_pre_state    :%r\n" % g_pre_state)
-        # print("g_avoid_state  :%r\n" % g_avoid_state)
         print("=======================================\n")
 
 
@@ -451,6 +469,8 @@ if __name__ == '__main__':
     sub_odom()
 
     move = Twist()
+    is_tree_topic = Int32()
     motor_pub = rospy.Publisher('/cmd_vel', Twist, queue_size=10)
+    tree_pub = rospy.Publisher('/detect_tree', Int32, queue_size=10)
 
     rospy.spin()
